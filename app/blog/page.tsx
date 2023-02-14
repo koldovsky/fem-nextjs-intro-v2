@@ -1,4 +1,4 @@
-export default function BlogPage() {
-    return (<div>Blog</div>);
-  }
-  
+export default function getStaticParams() {
+  return [{ slug: "learn-to-code" }, 
+          { slug: "angular-vs-react" }];
+}

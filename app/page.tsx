@@ -5,14 +5,21 @@ import Header from "../components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+async function getData() {
+  const res = await fetch("https://www.reddit.com/r/nextjs/comments/ydtms3/nextjs_13_do_we_no_longer_need_a_backend/.json");
+  return res.json();
+}
+
+export default async function Home() {
+  const data = await getData();
+  const info = data[0].kind;
   return (
     <>
       <Header />
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Get started by editing&nbsp;
+            Get started by editing&nbsp; Info: {info}
             <code className={styles.code}>app/page.tsx</code>
           </p>
           <div>
